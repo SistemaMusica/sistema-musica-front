@@ -1,0 +1,73 @@
+
+<br>
+
+<h1  fxLayout="row" fxLayoutAlign="center center" >
+    {{
+        (cancion._id)
+        ? 'Editar Cancion'
+        : 'Agregar Cancion'
+    }}
+    
+</h1>
+<br><br>
+
+<div fxLayout="column"
+    fxLayoutGap="10px"
+    fxLayout.xs="column"
+    >
+
+    <div fxFlex="80" style="margin-left: 10%;"
+        fxLayout="column">
+        
+        <div fxLayout="row"
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100"
+                            fxLayout.xs="column">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input type="text"
+                        matInput
+                        [(ngModel)]="cancion.nombre"
+                        required>
+            </mat-form-field>
+
+        </div>
+        <mat-form-field >
+            <mat-label>
+                Descripcion
+            </mat-label>
+            <input type="text"
+                        matInput
+                        [(ngModel)]="cancion.link"
+                        required>
+        </mat-form-field>
+        <br>
+        
+        <div fxLayout="row" >
+            <div mat-dialog-actions fxLayoutGap="40px" >
+                <span class="spacer"></span>
+                <button mat-button mat-raised-button style="background-color: white; color: black;" (click)="onClickNo()">
+                    <img style="height: 35px; width: 35px;" src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"/>
+                    Cancelar
+                </button>
+                <span class="spacer"></span>
+                
+                <button mat-raised-button 
+                        color="accent"
+                        (click)="guardar()">
+                        <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
+                    {{
+                        (cancion._id)
+                        ? 'Actualizar Cancion'
+                        : 'Crear Cancion'
+                    }}
+                </button>
+            </div>
+        </div>
+        
+    </div>
+
+</div>

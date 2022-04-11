@@ -1,0 +1,26 @@
+    
+    <br>
+    <span fxLayoutAlign="center" style="color:  black !important;" >
+        <h1>
+            <span style="margin-left: -20px;margin-right: 15px;"><img src="https://img.icons8.com/color/48/000000/anghami.png"/></span>
+            Repertorios en equipo
+        </h1>
+    </span>
+    <br>
+    <mat-divider  style="color:  black !important;"></mat-divider>
+    <br>
+
+    <div fxLayout="row wrap" 
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="20px">
+
+        <div fxFlex="30"
+            fxFlex.lg="30"
+            fxFlex.sm="30"
+            *ngFor="let compartido of compartidos">
+            <div class="p-2">
+                <app-compartido-tarjeta [compartido]="compartido"></app-compartido-tarjeta>
+            </div>
+        </div>
+    </div>

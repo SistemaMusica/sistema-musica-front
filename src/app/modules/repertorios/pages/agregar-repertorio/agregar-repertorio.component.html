@@ -1,0 +1,106 @@
+<br>
+
+<span fxLayout="row"  >
+    <span fxLayoutAlign="center" fxFlex="23">
+        <button mat-button color="warn" (click)="volver()">
+            <img src="https://img.icons8.com/color-glass/48/000000/chevron-left.png"/>
+        </button>
+    </span>
+    <span fxLayoutAlign="center" fxFlex="50">
+        <span style="margin-right: 15px;"><img src="https://img.icons8.com/color/48/000000/add-rule.png"/></span>
+        <h1>
+            <!-- <span class="material-icons"> 
+                playlist_add
+            </span> -->
+            {{
+                (repertorio._id)
+                ? 'Editar repertorio'
+                : 'Agregar repertorio'
+            }}
+            :
+            <!-- <small> 
+                {{repertorio.nombre}}
+            </small>  -->
+        </h1>
+    </span>
+</span>
+<br>
+    <mat-divider></mat-divider>
+<br>
+
+
+<div fxLayout="row" style="" class="carta-repertorio"
+    fxLayoutGap="60px"
+    fxLayout.xs="column"
+    fxLayoutAlign="center"
+    >
+
+    <div 
+        fxFlex="60" 
+        fxFlex.lg="50"
+        fxFlex.sm="50">
+        
+        <div fxLayout="row"  style="margin-top: 25px;"
+            fxLayout.xs="column"
+            fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100" fxLayout.xs="column">
+                <mat-label>
+                    Nombre
+                </mat-label>
+                <input type="text"
+                        matInput
+                        [(ngModel)]="repertorio.nombre"
+                        required>
+            </mat-form-field>
+
+        </div>
+        
+        <span fxLayout="row wrap" fxLayout.xs="column"  style="margin-top: -25px; margin-left: -18px;" *ngIf="repertorio._id">
+            <label for="archivo" fxFlex="100">
+                <img style="margin-top: 10%; 
+                    margin-right: 5%;
+                    margin-left: 5%;
+                    height: 200px;
+                    width: 100%;
+                    border-radius:  10px; " fxLayout="row wrap" fxLayout.xs="column"
+                    mat-card-xl-image [src]="imageSrc || repertorio.img || imgDefault" >
+                    <span style="margin-left: 40%;"> Seleccionar Imagen</span>
+                </label>
+            </span>
+        <form class="custom-input-file"  style="margin-left: 50%; display: none; " *ngIf="repertorio._id">
+            <input type="file" id="archivo" (change)="onFileChange($event)" name="archivo" >
+        </form>
+
+
+        <div fxLayout style="margin-top: 25px; margin-bottom: 20px;"
+            fxLayout.xs="column" 
+            fxLayoutAlign="space-evenly center">
+            <button *ngIf="repertorio._id"
+                    mat-raised-button
+                    style="background-color: #FE5050;color: white;"
+                    (click)="borrarRepertorio()">
+                <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/delete-forever.png"/></span>
+                Eliminar
+            </button>
+            <br>
+
+            <span class="spacer"></span>
+
+            <button mat-raised-button 
+                    color="accent"
+                    (click)="guardar()">
+                <span><img style="height: 25px; width: 25px;" src="https://img.icons8.com/wired/64/000000/save.png"/></span>
+                {{
+                    (repertorio._id)
+                    ? 'Actualizar repertorio'
+                    : 'Crear repertorio'
+                }}
+            </button>
+        </div>
+
+    </div>
+    <br>
+    
+    
+</div>

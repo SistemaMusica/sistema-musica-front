@@ -1,0 +1,21 @@
+<!-- <mat-card class="example-card"> -->
+    <mat-card-header  fxLayout="row" fxLayoutAlign="space-between center" >
+      <mat-card-title> {{cancion.nombre}}</mat-card-title>
+      
+      <mat-card-actions>
+        <button mat-button color="warn" (click)="editPartitura()">
+            Editar
+        </button>
+      </mat-card-actions>
+
+    </mat-card-header>
+    <iframe [src]="visorPdf" 
+      width="950" 
+      height="320" 
+      frameborder="0" 
+      webkitallowfullscreen 
+      mozallowfullscreen
+      allowfullscreen>
+    </iframe>
+  <!-- </mat-card> -->
+  
